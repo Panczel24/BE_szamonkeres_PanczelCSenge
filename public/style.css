@@ -1,5 +1,8 @@
-body {
-    background-color: rgb(232, 219, 202);
-    color:rgb(58, 46, 135);
+.nullastock{
+    color: red;
+    font-weight: bold;
 }
-
+.kisebbotnel{
+    color: red;
+    font-weight: bold;
+}

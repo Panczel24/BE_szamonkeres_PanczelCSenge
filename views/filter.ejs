@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter</title>
+    <link rel="stylesheet" href="/style.css">
+
+</head>
+
+<body>
+    <h1>Termékek szűrése</h1>
+    <a href="/">Index</a><br>
+    <a href="/new">Új termék felvétele</a>
+
+    <br><br>
+    <form method="get" action="/filter">
+        <label>Kategória:</label>
+        <select id="category" name="category">
+            <option value="elektronika" <%= category  %>>Elektronika</option>
+            <option value="ruházat" <%= category %>>Ruházat</option>
+            <option value="könyv" <%= category  %>>Könyv</option>
+            <option value="játék" <%= category  %>>Játék</option>
+        </select>
+        <button type="submit">Szűrés</button>
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Termék neve</th>
+                <th>Kategória</th>
+                <th>Ár</th>
+                <th>Raktárkészlet</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% Onlineshops.forEach(o=> { %>
+                <tr class="<%= o.stock ==0? " nullastock":"" %>">
+                    <td>
+                        <%= o.name %>
+                    </td>
+                    <td>
+                        <%= o.category %>
+                    </td>
+                    <td>
+                        <%= o.price %>
+                    </td>
+                    <td class="<%= o.stock<5? " kisebbotnel":"" %>"><%= o.stock %>
+                    </td>
+                </tr>
+                <% }) %>
+        </tbody>
+    </table>
+
+
+
+
+</body>
+
+</html>
